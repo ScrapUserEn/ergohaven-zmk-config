@@ -8,16 +8,28 @@
 #include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/pointing.h>
 
+&mmv { acceleration-exponent = <800>; };
+
 / {
     behaviors {
         cap_sen: cap_sen {
             compatible = "zmk,behavior-hold-tap";
             label = "CAP_SEN";
-            bindings = <&mo>, <&mkp>;
+            bindings = <&mo>, <&mo>;
 
             #binding-cells = <2>;
             tapping-term-ms = <150>;
             hold-while-undecided;
+        };
+
+        hrm: hrm {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HRM";
+            bindings = <&kp>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            flavor = "balanced";
         };
     };
 
@@ -84,10 +96,10 @@
 
         en {
             bindings = <
-&kp ESC    &kp Q  &kp W     &kp E     &kp R      &kp T                        &kp Y  &kp U           &kp I      &kp O     &kp P     &kp BSPC
-&kp TAB    &kp A  &kp S     &kp D     &kp F      &kp G                        &kp H  &kp J           &kp K      &kp L     &kp SEMI  &kp BSLH
-&kp LSHFT  &kp Z  &kp X     &kp C     &kp V      &kp B                        &kp N  &kp M           &kp COMMA  &kp DOT   &kp SQT   &kp RSHFT
-                  &kp LALT  &kp LGUI  &kp LCTRL  &mo 2  &kp SPACE    &kp RET  &mo 3  &cap_sen 6 MB1  &kp LBKT   &kp RBKT
+&kp ESC    &kp Q            &kp W            &kp E         &kp R              &kp T                        &kp Y  &kp U              &kp I         &kp O            &kp P               &kp BSPC
+&kp TAB    &hrm LEFT_GUI A  &hrm LEFT_ALT S  &hrm LCTRL D  &hrm LEFT_SHIFT F  &kp G                        &kp H  &hrm LEFT_SHIFT J  &hrm LCTRL K  &hrm LEFT_ALT L  &hrm LEFT_GUI SEMI  &kp BSLH
+&kp LSHFT  &kp Z            &kp X            &kp C         &kp V              &kp B                        &kp N  &kp M              &kp COMMA     &kp DOT          &kp SQT             &kp RSHFT
+                            &kp LALT         &kp LGUI      &kp LCTRL          &mo 2  &kp SPACE    &kp RET  &mo 3  &cap_sen 6 6       &kp LBKT      &kp RBKT
             >;
 
             display-name = "en";
@@ -96,17 +108,17 @@
         ru {
             display-name = "ru";
             bindings = <
-&kp ESC    &kp RU_CYRILLIC_SHORT_I  &kp RU_CYRILLIC_TSE   &kp RU_CYRILLIC_U   &kp RU_CYRILLIC_KA  &kp RU_CYRILLIC_IE                        &kp RU_CYRILLIC_EN  &kp RU_CYRILLIC_GHE        &kp RU_CYRILLIC_SHA  &kp RU_CYRILLIC_SHCHA      &kp RU_CYRILLIC_ZE   &kp BSPC
-&kp TAB    &kp RU_CYRILLIC_EF       &kp RU_CYRILLIC_YERU  &kp RU_CYRILLIC_VE  &kp RU_CYRILLIC_A   &kp RU_CYRILLIC_PE                        &kp RU_CYRILLIC_ER  &kp RU_CYRILLIC_O          &kp RU_CYRILLIC_EL   &kp RU_CYRILLIC_DE         &kp RU_CYRILLIC_ZHE  &kp BSLH
-&kp LSHFT  &kp RU_CYRILLIC_YA       &kp RU_CYRILLIC_CHE   &kp RU_CYRILLIC_ES  &kp RU_CYRILLIC_EM  &kp RU_CYRILLIC_I                         &kp RU_CYRILLIC_TE  &kp RU_CYRILLIC_SOFT_SIGN  &kp RU_CYRILLIC_BE   &kp RU_CYRILLIC_YU         &kp RU_CYRILLIC_E    &kp RSHFT
-                                    &kp LALT              &kp LGUI            &kp LCTRL           &mo 2               &kp SPACE    &kp RET  &mo 4               &cap_sen 6 MB1             &kp RU_CYRILLIC_HA   &kp RU_CYRILLIC_HARD_SIGN
+&kp ESC    &kp RU_CYRILLIC_SHORT_I       &kp RU_CYRILLIC_TSE             &kp RU_CYRILLIC_U          &kp RU_CYRILLIC_KA             &kp RU_CYRILLIC_IE                        &kp RU_CYRILLIC_EN  &kp RU_CYRILLIC_GHE            &kp RU_CYRILLIC_SHA        &kp RU_CYRILLIC_SHCHA         &kp RU_CYRILLIC_ZE             &kp BSPC
+&kp TAB    &hrm LEFT_GUI RU_CYRILLIC_EF  &hrm LEFT_ALT RU_CYRILLIC_YERU  &hrm LCTRL RU_CYRILLIC_VE  &hrm LEFT_SHIFT RU_CYRILLIC_A  &kp RU_CYRILLIC_PE                        &kp RU_CYRILLIC_ER  &hrm LEFT_SHIFT RU_CYRILLIC_O  &hrm LCTRL RU_CYRILLIC_EL  &hrm LEFT_ALT RU_CYRILLIC_DE  &hrm LEFT_GUI RU_CYRILLIC_ZHE  &kp BSLH
+&kp LSHFT  &kp RU_CYRILLIC_YA            &kp RU_CYRILLIC_CHE             &kp RU_CYRILLIC_ES         &kp RU_CYRILLIC_EM             &kp RU_CYRILLIC_I                         &kp RU_CYRILLIC_TE  &kp RU_CYRILLIC_SOFT_SIGN      &kp RU_CYRILLIC_BE         &kp RU_CYRILLIC_YU            &kp RU_CYRILLIC_E              &kp RSHFT
+                                         &kp LALT                        &kp LGUI                   &kp LCTRL                      &mo 2               &kp SPACE    &kp RET  &mo 4               &cap_sen 6 6                   &kp RU_CYRILLIC_HA         &kp RU_CYRILLIC_HARD_SIGN
             >;
         };
 
         nav {
             bindings = <
 &trans  &kp N1  &kp N2    &kp N3   &kp N4   &kp N5                     &kp N6    &kp N7        &kp N8         &kp N9       &kp N0         &trans
-&trans  &trans  &trans    &trans   &trans   &kp RET                    &trans    &kp LEFT      &kp DOWN       &kp UP       &kp RIGHT      &trans
+&trans  &trans  &trans    &trans   &trans   &kp RET                    &kp LEFT  &kp DOWN      &kp UP         &kp RIGHT    &trans         &kp PRINTSCREEN
 &trans  &trans  &kp HOME  &kp INS  &kp END  &kp DEL                    &kp CLCK  &kp LC(LEFT)  &kp PAGE_DOWN  &kp PAGE_UP  &kp LC(RIGHT)  &trans
                 &trans    &trans   &trans   &trans   &trans    &trans  &mo 5     &trans        &trans         &trans
             >;
@@ -129,7 +141,7 @@
             display-name = "sym_ru";
             bindings = <
 &kp RU_CYRILLIC_IO  &en HASH          &en LT    &kp EQUAL     &en GT       &en GRAVE                    &en CARET  &kp RU_DQT  &kp UNDER    &en SQT   &trans      &trans
-&kp RU_NUMERO       &kp RU_BACKSLASH  &kp LPAR  &kp MINUS     &kp RPAR     &kp PLUS                     &kp PRCNT  &en LBRC    &kp RU_SEMI  &kp RBRC  &kp EXCL    &kp RU_QMARK
+&kp RU_NUMERO       &kp RU_BACKSLASH  &kp LPAR  &kp MINUS     &kp RPAR     &kp PLUS                     &kp PRCNT  &en LBRC    &kp RU_SEMI  &en RBRC  &kp EXCL    &kp RU_QMARK
 &trans              &kp RU_COMMA      &kp STAR  &kp RU_COLON  &kp RU_FSLH  &en DLLR                     &en AT     &en PIPE    &en TILDE    &en AMPS  &kp RU_DOT  &trans
                                       &trans    &trans        &trans       &mo 5      &trans    &trans  &trans     &trans      &en LBKT     &en RBKT
             >;
@@ -175,7 +187,7 @@
     };
 };
 
-&trackball { cpi = <1000>; };
+&trackball { cpi = <2500>; };
 
 &trackball_listener {
     input-processors = <&zip_xy_scaler 9 20>;
@@ -184,7 +196,7 @@
         layers = <7>;
         input-processors =
             <&zip_xy_transform INPUT_TRANSFORM_Y_INVERT>,
-            <&zip_xy_scaler 1 32>,
+            <&zip_xy_scaler 1 64>,
             <&zip_xy_to_scroll_mapper>;
     };
 
