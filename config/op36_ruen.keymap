@@ -173,9 +173,9 @@
 
         sym_ru {
             bindings = <
-  &en HASH                &en LT          &kp EQUAL         &en GT           &en GRAVE                     &en CARET  &en LBKT  &kp UNDER           &en RBKT  &en RU_QUESTION
+  &kp HASH                &en LT          &kp EQUAL         &en GT           &en GRAVE                     &en CARET  &en LBKT  &kp UNDER           &en RBKT  &kp RU_QUESTION
   &hml LGUI RU_BACKSLASH  &hml LALT LPAR  &hml LSHFT MINUS  &hml LCTRL RPAR  &kp PLUS                      &kp PRCNT  &en LBRC  &hmr RSHFT RU_SEMI  &en RBRC  &hmr RGUI EXCL
-  &en RU_COMMA            &kp STAR        &kp RU_COLON      &kp RU_FSLH      &en DOLLAR                    &en AT     &en PIPE  &kp TILDE           &kp AMPS  &kp RU_DOT
+  &kp RU_COMMA            &kp STAR        &kp RU_COLON      &kp RU_FSLH      &kp DOLLAR                    &en AT     &en PIPE  &kp TILDE           &kp AMPS  &kp RU_DOT
                                                             &trans           &mo 5       &trans    &trans  &none      &trans
             >;
 
