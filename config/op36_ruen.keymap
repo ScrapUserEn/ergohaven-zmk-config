@@ -206,9 +206,9 @@
 
         mouse {
             bindings = <
-  &trans  &trans          &mmv MOVE_UP    &trans           &trans                    &trans  &trans     &trans    &trans     &trans
-  &trans  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans                    &trans  &mkp LCLK  &mkp MB2  &mkp MCLK  &msc MOVE_Y(-20)
-  &trans  &trans          &trans          &trans           &trans                    &trans  &trans     &trans    &trans     &trans
+  &trans  &trans          &mmv MOVE_UP    &trans           &trans                    &trans  &kp RU_CYRILLIC_HA  &trans    &kp RU_CYRILLIC_HARD_SIGN  &trans
+  &trans  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans                    &trans  &mkp LCLK           &mkp MB2  &mkp MCLK                  &msc MOVE_Y(-20)
+  &trans  &trans          &trans          &trans           &trans                    &trans  &trans              &trans    &trans                     &trans
                                           &trans           &trans  &trans    &trans  &trans  &trans
             >;
         };
